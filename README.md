@@ -1,4 +1,3 @@
 # checkout_bot
-checkout bot for booksale.com website
-buys books from links stored in a txt file
-made using selenium
+checkout bot for booksale.com website.
+It buys books from links stored in a txt file. Made using selenium
