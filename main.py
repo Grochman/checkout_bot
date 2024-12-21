@@ -1,15 +1,15 @@
 from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
 
-
-driver = webdriver.Chrome()
+driver = webdriver.Chrome(service=Service(executable_path='chromedriver.exe'))
 wait = WebDriverWait(driver, 30)
 
-file_path = "C:/Users/groch/Desktop/baza.txt"
+file_path = "links.txt"
 
 n = 0
 n_max = 0
@@ -77,14 +77,14 @@ value = value.replace(" PLN", "")
 try:
     cost = float(value)
     if cost >= 80:
-        print("oplaca sie")
+        print("free delivery (should buy)")
     else:
-        print("brak darmowej przesylki")
-    print("do zaplaty:", cost)
+        print("no free delivery")
+    print("cost:", cost)
 except ValueError:
     print("Unable to convert to an integer.")
     print(value)
 
 input("pres key to exit")
 driver.quit()
-print("koniec")
+print("proces finished")
